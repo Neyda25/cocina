@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+    <head>
+        <title>{% block titulo%}TuCocina{% endblock %}</title>
+         <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <!-- Paquete de iconos de Materialize-->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    
+    </head>
+    <body class="background blue lighten-5">
+        <nav>
+
+            <div class="nav-wrapper blue lighten-3" >
+                <font face="News701 BT">
+                    <a href="{% url 'blog:listar_recetas' %}" class="brand-logo black-text">TuCocina</a>
+
+                    <a href="#" data-target="menu-chico" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down" >
+                        <li><a href="{% url 'blog:listar_recetas' %}" class="black-text">General</a></li>
+                        <li><a href="{% url 'blog:ver_recetas_categoria' 3 %}" class="black-text">Platillos</a></li>
+                        <li><a href="{% url 'blog:ver_recetas_categoria' 1 %}" class="black-text">Postres</a></li>
+                        <li><a href="{% url 'blog:ver_recetas_categoria' 2 %}" class="black-text">Bebidas</a></li>
+                    </ul>
+                </font>
+            </div>
+
+        </nav>
+        
+
+        <div class='container' style="padding-bottom:2em;">
+            </div class= "row">
+                <div class="carousel carousel-slider" class="owl-next">
+                    <i class="next"><a class="carousel-item" href="#one!"><img src="https://lorempixel.com/800/400/food/1"></a>
+                    <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/800/400/food/2"></a>
+                    <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/800/400/food/3"></a>
+                    <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/800/400/food/4"></a></i>
+                </div>
+            <br>
+            <font face="Times New Roman" size='20'>
+                <p align='center'>Disfruta De Las Recetas Mas Deliciosas!!</p>
+            </font>
+            {% block cuerpo %}
+                <div class="underline ligth"></div>
+
+            {% endblock %}
+                <font face="Comic Sans MS"></font>
+                
+            </div>
+        </div>
+
+        <footer class=" page-footer blue lighten-3 black-text">
+            <font face="News701 BT">
+                <div align="center" style="padding:2em;" >
+                TuCocina © Todos los derechos reservados
+                Neyda Miranda, IIIBTPI Instituto Despertar Yoreño
+                </div>
+            </font>
+        </footer>
+     </body>
+         <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+         <!-- AddToAny BEGIN -->
+        <script async src="https://static.addtoany.com/menu/page.js"></script>
+        <!-- AddToAny END -->
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.carousel');
+                var instances = M.Carousel.init(elems, {
+                    duration: 400
+                    fullWidth= true
+                    indicators = true
+            });
+        </script>
+        
+
+     <script>
+            document.addEventListener('DOMContentLoaded', function(){
+                M.AutoInit();
+            });
+        </script>
+</html>

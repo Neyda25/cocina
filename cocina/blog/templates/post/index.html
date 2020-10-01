@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block titulo %}Recetas | TuCocina{% endblock %}
+
+{% block cuerpo %}
+    <div class="row">
+        {% if categoria %}
+            <h1>Categoria {{ categoria.descripcion }}</h1>
+                {% for new in categoria.receta_set.all %}
+                    <a href="{% url 'blog:ver_receta' new.id %}">
+                    <div class="col s4">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="{{ new.imagen.url }}" width="100%">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">{{ new.titulo|title|truncatechars:40 }}<i class="material-icons right">more_vert</i></span>
+                                <p> {{ new.contenido|lower|truncatechars:80 }} </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+            {% endfor %}
+        
+        {% else %}
+    
+            {% for new in news %}
+                <a href="{% url 'blog:ver_receta' new.id %}">
+                    <div class="col s4">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="{{ new.imagen.url }}" width="100%">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">{{ new.titulo|title|truncatechars:40 }}<i class="material-icons right">more_vert</i></span>
+                                <p> {{ new.contenido|lower|truncatechars:100 }} </p>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+            {% endfor %}
+            
+        {% endif %}
+    </div>
+{% endblock %}
